@@ -53,3 +53,4 @@ import gc
 print("Garbage collection thresholds:",
                     gc.get_threshold())
 #output:Garbage collection thresholds: (700, 10, 10) 
+'''Here, the default threshold on the above system is 700. This means when the number of allocations vs. the number of deallocations is greater than 700 the automatic garbage collector will run.'''
