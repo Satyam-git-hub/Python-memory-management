@@ -22,3 +22,34 @@ b = 9
 # becomes 0.
 '''as object 9 has a reference count 0 its is deallocated from the heap memory'''
 b = 4
+def create_cycle():
+ 
+    # create a list x
+    x = [ ]
+ 
+    # A reference cycle is created
+    # here as x contains reference to
+    # to self.
+    x.append(x)
+  
+'''create_cycle()
+Because create_cycle() creates an object x which refers to itself, the object x will not automatically be freed when the function returns. This will cause the memory that x is using to be held onto until the Python garbage collector is invoked.
+'''
+x = []
+x.append(l)
+x.append(2)
+ 
+# delete the list from memory or
+# assigning object x to None(Null)
+del x
+# x = None
+'''The reference count for the list created is now two. However, since it cannot be reached from inside Python and cannot possibly be used again, it is considered garbage. In the current version of Python, this list is never freed. 
+ '''
+# loading gc
+import gc
+ 
+# get the current collection
+# thresholds as a tuple
+print("Garbage collection thresholds:",
+                    gc.get_threshold())
+#output:Garbage collection thresholds: (700, 10, 10) 
